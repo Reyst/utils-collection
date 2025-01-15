@@ -2,11 +2,11 @@
 
 package com.github.reyst.utils
 
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlin.coroutines.CoroutineContext
 
 suspend inline fun <T> FlowCollector<T>.collectResult(result: Result<T>) = result.fold(
     onSuccess = { emit(it) },
@@ -14,7 +14,7 @@ suspend inline fun <T> FlowCollector<T>.collectResult(result: Result<T>) = resul
 )
 
 fun <T> flowFromResult(
-    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    coroutineContext: CoroutineContext = Dispatchers.Default,
     resultFactory: suspend () -> Result<T>,
 ) = flow { collectResult(resultFactory()) }
-    .flowOn(dispatcher)
+    .flowOn(coroutineContext)
