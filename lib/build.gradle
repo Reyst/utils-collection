@@ -40,7 +40,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.Reyst'
             artifactId = 'utils-collection'
-            version = '1.0.5'
+            version = '1.0.6'
 
             afterEvaluate {
                 from components.release
