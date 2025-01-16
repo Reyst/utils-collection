@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.github.reyst.utils
 
 import android.os.Parcel

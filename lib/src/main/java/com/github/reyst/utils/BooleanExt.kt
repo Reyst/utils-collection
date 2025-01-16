@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.github.reyst.utils
 
 fun Boolean?.orTrue() = orDefault(true)
