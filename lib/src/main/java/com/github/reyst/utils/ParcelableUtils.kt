@@ -1,11 +1,8 @@
-@file:Suppress("unused")
-
 package com.github.reyst.utils
 
 import android.os.Parcel
 import android.os.Parcelable
 import android.os.Parcelable.Creator
-
 
 fun Parcelable.toByteArray() = marshall(this)
 

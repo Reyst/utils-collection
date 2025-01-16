@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package com.github.reyst.utils
 
 import kotlin.contracts.ExperimentalContracts
