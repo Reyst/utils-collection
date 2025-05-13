@@ -1,8 +1,5 @@
-@file:Suppress("unused")
-
 package com.github.reyst.utils
 
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -13,8 +10,10 @@ suspend inline fun <T> FlowCollector<T>.collectResult(result: Result<T>) = resul
     onFailure = { throw it },
 )
 
+fun <T> flowFromResult(block: suspend () -> Result<T>) = flow { collectResult(block()) }
+
 fun <T> flowFromResult(
-    coroutineContext: CoroutineContext = Dispatchers.Default,
-    resultFactory: suspend () -> Result<T>,
-) = flow { collectResult(resultFactory()) }
+    coroutineContext: CoroutineContext,
+    block: suspend () -> Result<T>,
+) = flowFromResult(block)
     .flowOn(coroutineContext)
