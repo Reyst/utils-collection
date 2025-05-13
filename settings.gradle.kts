@@ -14,4 +14,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "utils-collection"
-include ':lib'
+include(":lib")

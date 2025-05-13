@@ -1,7 +1,7 @@
 plugins {
-    id ("com.android.library")
-    id ("org.jetbrains.kotlin.android")
-    id ("maven-publish")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -16,7 +16,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles (
+            proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
@@ -44,15 +44,15 @@ publishing {
 //        release(MavenPublication) {
             groupId = "com.github.Reyst"
             artifactId = "utils-collection"
-            version = "1.0.7"
+            version = "1.0.8"
 
             afterEvaluate {
-                from (components["release"])
+                from(components["release"])
             }
         }
     }
 }
 
 dependencies {
-    implementation ("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
 }
